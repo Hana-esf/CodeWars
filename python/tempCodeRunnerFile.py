@@ -1,1 +1,0 @@
-print(in_array(a1,a2))

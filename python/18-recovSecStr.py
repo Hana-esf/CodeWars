@@ -1,23 +1,24 @@
-import re
 def recoverSecret(triplets):
     secret_chars = list(set(i for j in triplets for i in j))
+    #print(secret_chars)
     secret_chars_pos = {}
-    secret_str = ""
     for i in triplets:
-        temp_str = ""
-        temp_str += temp_str.join(i)
-        secret_str += temp_str
+        change_place(secret_chars, i[0], i[1])
+        change_place(secret_chars, i[1], i[2])
+        change_place(secret_chars, i[0], i[2])
+    # print('After changes:')
+    # print(secret_chars)
+    secret_str = ""
+    secret_str = secret_str.join(secret_chars)
+    #print(secret_str)
+
+def change_place(list1, char1, char2):
+    if list1.index(char1) > list1.index(char2):
+        list1.remove(char1)
+        list1.insert(list1.index(char2),char1)
     
-    for i in secret_chars:
-        secret_chars_pos[i] = [((i.start())%3) for i in re.finditer(i,secret_str)]
-    print(secret_chars_pos)
-  
 
-
-
-
-
-
+#main
 the_input = [
   ['t','u','p'],
   ['w','h','i'],

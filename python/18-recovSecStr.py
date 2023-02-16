@@ -16,6 +16,7 @@ def recoverSecret(triplets):
     #     secret_str = 'abcdefghijklmnopqrstuvwxyz'
     print(secret_str)
     return secret_str
+    
 
 def change_place(list1, char1, char2):
     if list1.index(char1) > list1.index(char2):
